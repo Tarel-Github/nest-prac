@@ -22,7 +22,7 @@ describe('MoviesService', () => {
   });
 
   describe('getAll', () => {
-    it('should return an array', () => {
+    it('배열 리턴', () => {
       const result = service.getAll();
       expect(result).toBeInstanceOf(Array);
     });
@@ -66,6 +66,7 @@ describe('MoviesService', () => {
         service.deleteOne(999);
       } catch (e) {
         expect(e).toBeInstanceOf(NotFoundException);
+        expect(e.message).toEqual('Movie with ID 999 not found.');
       }
     });
   });
